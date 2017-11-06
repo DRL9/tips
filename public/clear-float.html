@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>清除浮动</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        section::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .container {
+            min-height: 1em;
+            border: 1px solid #000;
+        }
+
+        .float-element {
+            width: 10em;
+            height: 5em;
+            background: rgba(0, 60, 255, 0.4);
+            color: yellow;
+            text-align: center;
+            border: 1px solid #808080;
+        }
+
+        .left {
+            float: left;
+        }
+
+        .right {
+            float: right;
+        }
+
+        .clear-float {
+            clear: both;
+            display: block;
+        }
+
+        .float-father {
+            float: left;
+        }
+
+        .overflow-father {
+            overflow: hidden;
+        }
+
+        .pseudo-element-father::after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>清除浮动</h1>
+    <section>
+        <p>浮动未清除</p>
+        <div class="container">
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            浮动元素不会撑开容器
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            <div class="float-element right">
+                我是浮动元素
+            </div>
+        </div>
+    </section>
+    <section>
+        <p>在末尾容器末尾添加空
+            <strong>块级</strong>元素,并添加css样式
+            <code>clear:both</code>
+        </p>
+        <div class="container">
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            浮动元素撑开容器
+            <div class="float-element right">
+                我是浮动元素
+            </div>
+            <span class="clear-float"></span>
+        </div>
+    </section>
+    <section>
+        <p>将浮动元素的
+            <strong>父元素</strong>样式设置成浮动
+        </p>
+        <div class="container float-father">
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            浮动元素撑开容器
+            <div class="float-element right">
+                我是浮动元素
+            </div>
+        </div>
+    </section>
+    <section>
+        <p>将浮动元素
+            <strong>父元素</strong>的
+            <code>overflow</code>设置成
+            <code>hidden</code>或
+            <code>scroll</code>或
+            <code>auto</code>
+        </p>
+        <div class="container overflow-father">
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            浮动元素撑开容器
+            <div class="float-element right">
+                我是浮动元素
+            </div>
+        </div>
+    </section>
+    <section>
+        <p>给浮动元素
+            <strong>父元素</strong>添加
+            <code>::after</code>伪元素，并设置其为
+            <strong>块级</strong>元素，添加样式
+            <code>clear:both</code>
+        </p>
+        <div class="container pseudo-element-father">
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            <div class="float-element left">
+                我是浮动元素
+            </div>
+            浮动元素撑开容器
+            <div class="float-element right">
+                我是浮动元素
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
