@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "null",
-    "dev": "gulp server"
+    "dev": "gulp dev"
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,10 @@
   },
   "homepage": "https://github.com/DRL9/tips#readme",
   "devDependencies": {
+    "ejs": "^2.5.7",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
-    "gulp-open": "^2.0.0"
+    "gulp-open": "^2.0.0",
+    "gulp-watch": "^4.3.11"
   }
 }
