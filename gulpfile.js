@@ -11,7 +11,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('style', () => {
-    gulp.src('./public/css/**/*.css')
+    gulp.src('./public/css/*.css')
         .pipe(connect.reload());
 });
 
@@ -24,6 +24,6 @@ gulp.task('server', () => {
     gulp.src(__filename).pipe(open({
         uri: `http://localhost:${PORT}`
     }));
-    gulp.watch('./public/**/*.html', ['html']);
-    gulp.watch('./public/css/**/*.css', ['style']);
+    gulp.watch('./public/html/*.html', ['html']);
+    gulp.watch('./public/css/*.css', ['style']);
 });
