@@ -22,7 +22,7 @@ gulp.task('style', () => {
 
 gulp.task('dev', ['init-tip', 'dynamic-update-index', 'server']);
 
-gulp.task('server', () => {
+gulp.task('server', ['dynamic-update-index'], () => {
     connect.server({
         port: PORT,
         root: path.resolve('./public'),
@@ -36,7 +36,7 @@ gulp.task('server', () => {
 
 });
 
-gulp.task('dynamic-update-index', () => {
+gulp.task('dynamic-update-index', ['init-tip'], () => {
     watch('./public/html/*.html', {
         events: ['add', 'unlink']
     }, (e) => {
@@ -56,7 +56,8 @@ gulp.task('dynamic-update-index', () => {
 });
 
 gulp.task('init-tip', () => {
-    var tipArray = fs.readdirSync(path.resolve('./public/html'));
+    const htmlPath = path.resolve('./public/html');
+    var tipArray = fs.readdirSync(htmlPath);
     tipArray.forEach((fileName) => {
         tips[fileName] = fileName;
     });
