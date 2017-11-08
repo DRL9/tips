@@ -55,11 +55,22 @@ gulp.task('dynamic-update-index', ['init-tip'], () => {
     renderIndexHtml();
 });
 
-gulp.task('init-tip', () => {
+gulp.task('init-tip', (done) => {
     const htmlPath = path.resolve('./public/html');
     var tipArray = fs.readdirSync(htmlPath);
-    tipArray.forEach((fileName) => {
-        tips[fileName] = fileName;
+    tipArray.forEach((fileName, index) => {
+        var stream = fs.createReadStream(path.resolve(htmlPath, fileName), {
+            encoding: 'utf-8',
+            start: 0,
+            end: 500
+        });
+        stream.on('data', (chunk) => {
+            var title = /<title>[\r\n\s]*(.+)[\r\n\s]*<\/title>/.exec(chunk)[1];
+            tips[fileName] = title;
+            if (tipArray.length - 1 === index) {
+                done();
+            }
+        });
     });
 });
 
