@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css" />
+    <link href="../css/style.css" rel="stylesheet">
+    <title>
+        水平垂直居中
+    </title>
+    <style>
+        .wrap {
+            border: 1px solid #000;
+            height: 100px;
+        }
+
+        .content {
+            display: inline-block;
+            background: rgba(21, 75, 156, 0.3);
+            text-align: center;
+        }
+
+        .method-1 .wrap {
+            position: relative;
+        }
+
+        .method-1 .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .method-2 .wrap {
+            display: table;
+            width: 100%;
+        }
+
+        .method-2 .wrap>div {
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .method-3 .wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="method-1">
+        <h1>方法一：利用
+            <code>translate</code>
+        </h1>
+        <p>设置
+            <strong>父元素</strong>
+            <code>position</code>为
+            <strong>非</strong>
+            <code>static</code>， 容器元素
+            <pre>
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);</pre>
+        </p>
+        <div class="wrap">
+            <div class="content">我是需要居中的容器</div>
+        </div>
+    </section>
+    <section class="method-2">
+        <h1>方法二：利用
+            <code>table</code>
+        </h1>
+        <p>
+            将
+            <strong>祖父元素</strong>设置成
+            <code>display:table; width:100%</code>，
+            <strong>父元素</strong>设置成
+            <pre>
+                display: table-cell;
+                vertical-align: middle;
+                text-align: center;</pre>
+        </p>
+        <div class="wrap">
+            <div>
+                <div class="content">我是需要居中的容器</div>
+            </div>
+        </div>
+    </section>
+    <section class="method-3">
+        <h1>方法三：利用
+            <code>flex</code>
+        </h1>
+        <p>
+            将
+            <strong>父元素</strong>设置成
+            <pre>
+                display: flex;
+                justify-content: center;
+                align-items: center;</pre>
+        </p>
+        <div class="wrap">
+            <div class="content">我是需要居中的容器</div>
+        </div>
+    </section>
+</body>
+
+</html>

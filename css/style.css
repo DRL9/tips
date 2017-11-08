@@ -1,0 +1,16 @@
+code {
+    padding: 1px 5px;
+    white-space: normal;
+    font-family: Consolas, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
+    background-color: #eff0f1;
+}
+
+pre {
+    padding: 1px 5px;
+    font-family: Consolas, Bitstream Vera Sans Mono, Courier New, monospace, sans-serif;
+    background-color: #eff0f1;
+}
+
+body {
+    margin-bottom: 1em;
+}
