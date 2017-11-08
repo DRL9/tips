@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "null",
-    "dev": "gulp dev"
+    "dev": "gulp dev",
+    "deploy": "gh-pages -d public"
   },
   "repository": {
     "type": "git",
@@ -22,6 +23,7 @@
   "homepage": "https://github.com/DRL9/tips#readme",
   "devDependencies": {
     "ejs": "^2.5.7",
+    "gh-pages": "^1.0.0",
     "gulp": "^3.9.1",
     "gulp-connect": "^5.0.0",
     "gulp-open": "^2.0.0",
