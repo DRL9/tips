@@ -49,6 +49,22 @@
             justify-content: center;
             align-items: center;
         }
+
+        .method-4 .wrap {
+            position: relative;
+        }
+
+        .method-4 .content {
+            height: 50px;
+            line-height: 50px;
+            width: 200px;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+        }
     </style>
 </head>
 
@@ -109,6 +125,31 @@
             <div class="content">我是需要居中的容器</div>
         </div>
     </section>
+    <section class="method-4">
+        <h1>方法四：利用
+            <code>position</code>
+        </h1>
+        <p>设置
+            <strong>父元素</strong>的
+            <code>position</code>为非
+            <code>static</code>，设置容器为
+            <pre>
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin: auto;</pre>
+        </p>
+        <p>
+            此方法要求居中容器有
+            <strong>固定的宽高</strong>
+        </p>
+        <div class="wrap">
+            <div class="content">我是需要居中的容器</div>
+        </div>
+    </section>
+
 </body>
 
 </html>
